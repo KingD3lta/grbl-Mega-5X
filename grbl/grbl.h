@@ -68,9 +68,9 @@
 // ---------------------------------------------------------------------------------------
 // COMPILE-TIME ERROR CHECKING OF DEFINE VALUES:
 
-#ifndef HOMING_CYCLE_0
-  #error "Required HOMING_CYCLE_0 not defined."
-#endif
+// #ifndef HOMING_CYCLE_0
+//   #error "Required HOMING_CYCLE_0 not defined."
+// #endif
 
 #if defined(PARKING_ENABLE)
   #if defined(HOMING_FORCE_SET_ORIGIN)
