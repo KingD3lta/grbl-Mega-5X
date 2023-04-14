@@ -239,9 +239,9 @@
   //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
   //#define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
 #elif N_AXIS == 5 // 5 axis : homing
-    #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
-    #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_4)) // Home X axis
-    #define HOMING_CYCLE_2 ((1<<AXIS_2)|(1<<AXIS_5)) // Home Y axis
+  #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
+  #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_4)) // Home X axis
+  #define HOMING_CYCLE_2 ((1<<AXIS_2)|(1<<AXIS_5)) // Home Y axis
 #endif
 // NOTE: The following are two examples to setup homing for 2-axis machines.
 // #define HOMING_CYCLE_0 ((1<<AXIS_1)|(1<<AXIS_2))  // NOT COMPATIBLE WITH COREXY: Homes both X-Y in one cycle.

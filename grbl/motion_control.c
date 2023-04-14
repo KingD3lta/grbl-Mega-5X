@@ -419,9 +419,7 @@ void mc_homing_cycle(uint8_t cycle_mask)
     // Search to engage all axes limit switches at faster homing seek rate.
     // @dev disabled Z Axis homing as machine does not have Z Axis Limit Switches
     //limits_go_home(HOMING_CYCLE_0);  // Homing cycle 0
-    #ifdef HOMING_CYCLE_1
-      limits_go_home(HOMING_CYCLE_1);  // Homing cycle 1
-    #endif
+    limits_go_home(HOMING_CYCLE_1);  // Homing cycle 1
     #ifdef HOMING_CYCLE_2
       limits_go_home(HOMING_CYCLE_2);  // Homing cycle 2
     #endif
