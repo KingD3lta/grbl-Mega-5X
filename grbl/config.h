@@ -118,7 +118,7 @@
 // Chose the spindle pin output :
 // SPINDLE_PWM_ON_D8  => 0-12v 16 bits PWM on RAMPS D8 (default)
 // SPINDLE_PWM_ON_D9  => 0-12v 8 bits PWM on RAMPS D9
-SPINDLE_PWM_ON_D6  => 0-5v 8bits PWM on RAMPS Servo 2 signal (Mega 2560 D6)
+//SPINDLE_PWM_ON_D6  => 0-5v 8bits PWM on RAMPS Servo 2 signal (Mega 2560 D6)
 // Uncomment the line which correspond to your hardware
 //#define SPINDLE_PWM_ON_D8
 #define SPINDLE_PWM_ON_D6
