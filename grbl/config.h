@@ -53,33 +53,27 @@
 //----------------------------------------------------------------------
 
 #define N_AXIS 5        // Number of axes (3 to 6)
-#define N_AXIS_LINEAR 3 // Number of linears axis, must be <= N_AXIS
+#define N_AXIS_LINEAR 5 // Number of linears axis, must be <= N_AXIS
 
 // Axis indexing and names
-#define AXIS_1 0        // Axis indexing value. Must start with 0 and be continuous.
-#define AXIS_1_NAME 'X' // Axis names must be in X, Y, Z, A, B, C, U, V, W, D, E & H.
-#define AXIS_2 1
-#define AXIS_2_NAME 'Y'
-#define AXIS_3 2
-#define AXIS_3_NAME 'Z'
-#if N_AXIS <3
-  #error "N_AXIS must be >= 3. N_AXIS < 3 is not implemented."
-#endif
-#if N_AXIS > 3
-  #define AXIS_4 3
-  #define AXIS_4_NAME 'A' // Letter of axis number 4
-#endif
-#if N_AXIS > 4
-  #define AXIS_5 4
-  #define AXIS_5_NAME 'B' // Letter of axis number 5
-#endif
-#if N_AXIS > 5
-  #define AXIS_6 5
-  #define AXIS_6_NAME 'C' // Letter of axis number 6
-#endif
-#if N_AXIS > 6
-  #error "N_AXIS must be <= 6. N_AXIS > 6 is not implemented."
-#endif
+#define AXIS_1 0        // Axis indexing value. Must start with 0 and be continuous.  
+#define AXIS_1_NAME 'X' // Axis names must be in X, Y, Z, A, B, C, U, V & W.  
+#define AXIS_2 1  
+#define AXIS_2_NAME 'Y'  
+#define AXIS_3 2  
+#define AXIS_3_NAME 'Z'  
+  
+#if N_AXIS <3  
+  #error "N_AXIS must be >= 3. N_AXIS < 3 is not implemented."  
+#endif  
+#if N_AXIS > 3  
+  #define AXIS_4 3  
+  #define AXIS_4_NAME 'X' // Letter of axis number 4  
+#endif  
+#if N_AXIS > 4  
+  #define AXIS_5 4  
+  #define AXIS_5_NAME 'Y' // Letter of axis number 5  
+#endif  
 
 // Renaming axis doesn't change their number. By default, the status report give axis values in
 // the order of their number. Some graphical interface are not able to affect axis values reported
@@ -244,27 +238,10 @@
   //#define HOMING_CYCLE_1 (1<<AXIS_1) // Home X axis  // OPTIONAL: uncomment to move only X at a time.
   //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
   //#define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
-#elif N_AXIS == 5 // 5 axis : homing
-  //#define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
-  #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_2))     // OPTIONAL: uncomment to move X,Y at the same time.
-  //#define HOMING_CYCLE_1 (1<<AXIS_1) // Home X axis  // OPTIONAL: uncomment to move only X at a time.
-  //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
-  //#define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
-  //#define HOMING_CYCLE_4 (1<<AXIS_5) // Home 5th axis (B)
-#elif N_AXIS == 6 // 6 axis : homing
-  #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
-  #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_2))     // OPTIONAL: uncomment to move X,Y at the same time.
-  //#define HOMING_CYCLE_1 (1<<AXIS_1) // Home X axis  // OPTIONAL: uncomment to move only X at a time.
-  //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
-  //#define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
-  //#define HOMING_CYCLE_4 (1<<AXIS_5) // Home 5th axis (B)
-  //#define HOMING_CYCLE_5 (1<<AXIS_6) // Home 6th axis (C)
-#else // Classic 3 axis
-  #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
-  #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_2))     // OPTIONAL: uncomment to move X,Y at the same time.
-  //#define HOMING_CYCLE_1 (1<<AXIS_1) // Home X axis  // OPTIONAL: uncomment to move only X at a time.
-  //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
-#endif
+  #elif N_AXIS == 5 // 5 axis : homing
+    #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
+    #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_4)) // Home X axis
+    #define HOMING_CYCLE_2 ((1<<AXIS_2)|(1<<AXIS_5)) // Home Y axis
 
 // NOTE: The following are two examples to setup homing for 2-axis machines.
 // #define HOMING_CYCLE_0 ((1<<AXIS_1)|(1<<AXIS_2))  // NOT COMPATIBLE WITH COREXY: Homes both X-Y in one cycle.
